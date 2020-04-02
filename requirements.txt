@@ -1,0 +1,8 @@
+apex==0.1
+numpy==1.17.4
+opencv-python==4.1.2.30
+Pillow==6.1.0
+tensorboardX==2.0
+torch==1.4.0+cu92
+torchvision==0.5.0+cu92
+tqdm==4.43.0
