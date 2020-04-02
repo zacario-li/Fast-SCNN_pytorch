@@ -46,3 +46,11 @@ dataset
  
 
 ### 训练脚本准备
+可以按照上述结构准备数据并训练
+
+## TODO
+- [x] Training & Validate functions
+- [ ] Tensorboard 记录
+- [ ] resume training 脚本
+- [ ] VOC2012数据集训练脚本
+- [ ] 多GPU训练
