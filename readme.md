@@ -27,6 +27,9 @@ Table 1
   
 Table 2
 ## 使用方法
+基于540x540分辨率，在voc2012数据集上训练了一个权重，各位可以用这个来初始化，节约一些训练时间  
+[https://pan.baidu.com/s/17_pGbpkI4tx8eOMZFS73fA](https://pan.baidu.com/s/17_pGbpkI4tx8eOMZFS73fA)
+password:v98k
 ### 数据准备
 准备原图文件夹 img，准备label图文件夹 label，然后准备好train.txt 和 val.txt，放在同一级目录下，结构如下：  
 dataset  
