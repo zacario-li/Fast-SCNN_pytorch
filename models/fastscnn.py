@@ -232,7 +232,7 @@ class FeatureFusion(nn.Module):
     
 
     def forward(self, ph1Feature, ph2Feature):
-        xUp = F.interpolate(ph2Feature, scale_factor=self.scale, mode='bilinear', align_corners=True)
+        xUp = F.interpolate(ph2Feature, size=ph1Feature.shape[2:], mode='bilinear', align_corners=True)
         xUp = self.dwconv(xUp)
         xUp = self.upBranch(xUp)
         
