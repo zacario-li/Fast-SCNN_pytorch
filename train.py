@@ -42,6 +42,7 @@ inputHW = [320, 320]
 cv2.ocl.setUseOpenCL(True)
 cv2.setNumThreads(32)
 
+
 def poly_learning_rate(base_lr, curr_iter, max_iter, power=0.9):
     """poly learning rate policy"""
     lr = base_lr * (1 - float(curr_iter) / max_iter) ** power
@@ -107,7 +108,7 @@ def prepareDataset(rootpath, trainlist, vallist, mean, std):
     # return datasets
     return trainDataLoader, valDataLoader
 
-def subTrain(model, optimizer, criterion, dataLoader, currentepoch, maxIter):
+def subTrain(model, optimizer, criterion, dataLoader, currentepoch, maxIter, device):
     # set to train mode to enable dropout and bn
     model.train()
 
@@ -117,8 +118,8 @@ def subTrain(model, optimizer, criterion, dataLoader, currentepoch, maxIter):
     lossMeter = common.AverageMeter()
     
     for i, (x, y) in enumerate(dataLoader):
-        x = x.cuda(non_blocking=True)
-        y = y.cuda(non_blocking=True)
+        x = x.to(device)
+        y = y.to(device)
         
         out = model(x)
         mainLoss = criterion(out[0], y)
@@ -156,7 +157,7 @@ def subTrain(model, optimizer, criterion, dataLoader, currentepoch, maxIter):
         print(f'training Class_{i} IoU: {IoU[i]}, acc: {accuracy[i]}')
     '''
 
-def subVal(model, criterion, dataLoader):
+def subVal(model, criterion, dataLoader, device):
     # set to eval mode
     model.eval()
 
@@ -166,8 +167,8 @@ def subVal(model, criterion, dataLoader):
     lossMeter = common.AverageMeter()
 
     for i, (x, y) in enumerate(dataLoader):
-        x = x.cuda(non_blocking=True)
-        y = y.cuda(non_blocking=True)
+        x = x.to(device)
+        y = y.to(device)
         
         out = model(x)
         mainLoss = criterion(out[0], y)
@@ -190,10 +191,12 @@ def subVal(model, criterion, dataLoader):
         print('Class_'+str(i)+' IoU:',IoU[i],' acc:',accuracy[i])
 
 def train():
+    #device
+    device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
     model = fastscnn.FastSCNN(numClasses, True)
     numParams = sum(torch.numel(p) for p in model.parameters() )
     print(f'Total paramers: {numParams}')
-    model = model.cuda()
+    model = model.to(device)
     weightsInit(model)
     mean,std = getMeanStd()
 
@@ -210,9 +213,9 @@ def train():
     # start training
     for epoch in range(1, globalEpoch):
         # do train on every epoch
-        subTrain(model, optimizer, criterion, trainDataLoader, epoch, maxIter)
+        subTrain(model, optimizer, criterion, trainDataLoader, epoch, maxIter, device)
         # evaluate
-        subVal(model, criterion, valDataLoader)        
+        subVal(model, criterion, valDataLoader, device)        
         # save model
         if ( (epoch) % 20) == 0:
             filename = 'save/'+'train_'+str(epoch)+'.pth'

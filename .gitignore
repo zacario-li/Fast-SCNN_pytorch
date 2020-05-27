@@ -1,5 +1,6 @@
 .vscode/
 models/__pycache__/
 utils/__pycache__/
+loss/__pycache__/
 save/
 result/*.png
