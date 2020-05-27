@@ -148,5 +148,20 @@ def processVideo(filename):
         idx += 1
 
 
+def testImg(filename):
+    seg = FSCNNSegModel(MDL_CLS, WEIGHTS_PATH)
+    #seg.warmup()
+    img = []
+    im = cv2.imread(filename)
+    img.append(im)
+    bimgs = seg.imgProcess(img)
+    result = seg.detect(bimgs)
+    target = np.uint8(result[0])
+    color = seg.colorArray()
+    gray = seg.colorize(target, color)
+    gray.save('target.png')
+    pass
+
+
 if __name__ == '__main__':
     processVideo('test.mp4')

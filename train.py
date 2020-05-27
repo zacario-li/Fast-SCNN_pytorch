@@ -29,6 +29,7 @@ from tensorboardX import SummaryWriter
 import sys
 from utils import dataset, transform, common
 from models import fastscnn
+from loss import diceloss
 
 numClasses = 21
 dataRoot = 'voc2012'
@@ -196,7 +197,8 @@ def train():
     weightsInit(model)
     mean,std = getMeanStd()
 
-    criterion = nn.CrossEntropyLoss(ignore_index=255)
+    #criterion = nn.CrossEntropyLoss(ignore_index=255)
+    criterion = diceloss.DiceLoss()
     optimizer = torch.optim.SGD(model.parameters(),lr=baseLr, momentum=0.9, weight_decay=0.0001)
 
     # get dataset
