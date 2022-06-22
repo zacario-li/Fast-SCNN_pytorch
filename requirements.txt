@@ -1,5 +1,5 @@
 apex==0.1
-numpy==1.21.0
+numpy==1.22.0
 opencv-python==4.2.0.32
 Pillow==9.0.1
 tensorboardX==2.0
