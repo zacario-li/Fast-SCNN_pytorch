@@ -3,6 +3,6 @@ numpy==1.22.0
 opencv-python==4.2.0.32
 Pillow==9.0.1
 tensorboardX==2.0
-torch==1.4.0+cu92
+torch==1.13.1
 torchvision==0.5.0+cu92
 tqdm==4.43.0
