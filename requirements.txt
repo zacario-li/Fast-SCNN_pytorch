@@ -1,6 +1,6 @@
 apex==0.1
 numpy==1.22.0
-opencv-python==4.2.0.32
+opencv-python==4.8.1.78
 Pillow==10.0.1
 tensorboardX==2.0
 torch==1.13.1
