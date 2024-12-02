@@ -58,5 +58,5 @@ dataset
 - [ ] VOC2012数据集训练脚本
 - [ ] 多GPU训练
 ## Support Me
-If you want to speedup my progress, plsease support me.  
+If you want to speedup my progress, please support me.  
 <a href="https://www.buymeacoffee.com/winafoxq"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=winafoxq&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
