@@ -1,3 +1,5 @@
+
+
 # Fast-SCNN (PyTorch)
 
 PyTorch implementation of **Fast-SCNN** for fast semantic segmentation, based on the paper below.
@@ -54,7 +56,7 @@ Create a virtual environment (recommended), then install dependencies:
 pip install -r requirements.txt
 ```
 
-**Note:** `requirements.txt` pins older PyTorch/CUDA builds. Adjust `torch` / `torchvision` to match your CUDA or CPU setup if install fails.
+**Note:** `requirements.txt` pins older PyTorch/CUDA builds. For Python 3.12+ or headless environments, install `torch`, `torchvision`, and `opencv-python-headless` directly. Adjust versions to match your CUDA or CPU setup if install fails.
 
 ### Dataset layout
 
