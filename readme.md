@@ -164,7 +164,7 @@ Adapt `testImg('your_image.jpg')` vs `processVideo('your_video.mp4')` in the `__
 
 If you want to support this project:
 
-<a href="https://www.buymeacoffee.com/winafoxq"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=winafoxq&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
+<a href="https://www.buymeacoffee.com/winafoxq"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" width="217" height="61"></a>
 
 ## Star History
 
